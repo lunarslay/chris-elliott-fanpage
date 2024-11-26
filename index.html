@@ -3,12 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chris Elliott Fanpage</title>
+    <title>Chris Elliott - Big Blue Bubble Artist</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #2a2d34, #3b3f4a);
+            color: #f4f4f4;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #1f8b4c;
+            border-radius: 8px;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #f4f4f4;
+        }
+
+        header p {
+            font-size: 1.2em;
+            color: #e3e3e3;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 30px auto;
+            background: #3b3f4a;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero img {
+            display: block;
+            margin: 0 auto 20px;
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #1f8b4c;
+        }
+
+        p {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #999;
+        }
+
+        footer a {
+            color: #1f8b4c;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to the Chris Elliott Fanpage!</h1>
-    <p>Celebrating the amazing career of Chris Elliott!</p>
-    <img src="https://mysingingmonsters.fandom.com/wiki/Chris_Elliott" alt="Chris Elliott">
-    <p>Stay tuned for more content!</p>
+
+    <header>
+        <h1>Chris Elliott</h1>
+        <p>Senior Artist at Big Blue Bubble | My Singing Monsters Legend</p>
+    </header>
+
+    <main>
+        <div class="hero">
+            <!-- Placeholder image -->
+            <img src="chris-elliott.jpg" alt="Chris Elliott">
+        </div>
+
+        <h2>About Chris Elliott</h2>
+        <p>Chris Elliott is a talented Senior Artist at Big Blue Bubble, known for his remarkable contributions to the *My Singing Monsters* franchise. From drawing intricate art assets to voicing characters, his influence on the game is immense.</p>
+
+        <div class="info">
+            <p><strong>Age:</strong> <span id="age">Calculating...</span></p>
+            <p><strong>From:</strong> London, Ontario, Canada</p>
+            <p><strong>Hobbies:</strong> Pinball, Star Wars, and admiring goth aesthetics</p>
+            <p><strong>Known For:</strong> 
+                <ul>
+                    <li>Voicing <strong>Grumpyre</strong></li>
+                    <li>Possibly voicing male vocals on <strong>Whajje</strong></li>
+                    <li>Creating iconic art assets for <strong>My Singing Monsters</strong></li>
+                </ul>
+            </p>
+            <p><strong>Birthday:</strong> February 6</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>Explore more about Chris Elliott and his incredible work in *My Singing Monsters*!</p>
+    </footer>
+
+    <script>
+        // Calculate Chris Elliott's age based on his birthday
+        const birthday = new Date('1974-02-06'); // Chris Elliott's birthdate (YYYY-MM-DD)
+        const today = new Date();
+        const ageElement = document.getElementById('age');
+        let age = today.getFullYear() - birthday.getFullYear();
+        const isBeforeBirthdayThisYear = today.getMonth() < birthday.getMonth() || 
+                                         (today.getMonth() === birthday.getMonth() && today.getDate() < birthday.getDate());
+        if (isBeforeBirthdayThisYear) {
+            age -= 1;
+        }
+        ageElement.textContent = age;
+    </script>
+
 </body>
 </html>
