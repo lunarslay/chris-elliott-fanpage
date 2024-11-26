@@ -20,13 +20,35 @@
             padding: 20px;
         }
 
+        nav {
+            background: #1f8b4c;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            margin: 0 15px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
         .container {
             max-width: 800px;
-            margin: 0 auto;
+            margin: 20px auto;
             background: #262a3b;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             overflow: hidden;
+            display: none; /* Default hidden until shown */
+        }
+
+        .container.active {
+            display: block;
         }
 
         .header {
@@ -47,9 +69,6 @@
 
         .content {
             padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             text-align: center;
         }
 
@@ -59,25 +78,17 @@
             margin-bottom: 20px;
         }
 
-        .content h2 {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-            color: #1f8b4c;
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            padding: 20px;
         }
 
-        .content p {
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-        }
-
-        .content ul {
-            list-style: none;
-            padding: 0;
-            margin: 10px 0;
-        }
-
-        .content ul li {
-            margin-bottom: 10px;
+        .gallery img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
 
         .footer {
@@ -91,36 +102,46 @@
 </head>
 <body>
 
-    <div class="container">
-        <!-- Header -->
+    <!-- Navigation -->
+    <nav>
+        <a href="#main" onclick="showTab('main')">Main</a>
+        <a href="#gallery" onclick="showTab('gallery')">Gallery</a>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container" id="main">
         <div class="header">
             <h1>Chris Elliott</h1>
             <p>Senior Artist at Big Blue Bubble | My Singing Monsters</p>
         </div>
-
-        <!-- Content -->
         <div class="content">
-            <!-- Image of Chris Elliott -->
             <img src="chris-elliott.jpg" alt="Chris Elliott - Senior Artist">
-
             <h2>About Chris Elliott</h2>
             <p>Chris Elliott is a talented Senior Artist at Big Blue Bubble, known for his contributions to the *My Singing Monsters* franchise. He’s celebrated for his creativity and unique style.</p>
             <p><strong>Age:</strong> <span id="age">Calculating...</span></p>
             <p><strong>From:</strong> London, Ontario, Canada</p>
-            <p><strong>Known For:</strong></p>
             <ul>
                 <li>Voicing <strong>Grumpyre</strong> and <strong>Possibly Whaill</strong></li>
                 <li>Creating iconic art assets for <strong>My Singing Monsters</strong></li>
                 <li>Being an avid pinball enthusiast and Star Wars fan</li>
             </ul>
-            <p><strong>Birthday:</strong> February 6</p>
             <p>Chris is also known for his appreciation of goth aesthetics and his fun, quirky personality that shines through in his work!</p>
         </div>
+    </div>
 
-        <!-- Footer -->
-        <div class="footer">
-            <p>Fanpage dedicated to Chris Elliott and his amazing work.</p>
+    <!-- Gallery Container -->
+    <div class="container" id="gallery">
+        <div class="content">
+            <h2>Gallery</h2>
+            <div class="gallery" id="gallery-container">
+                <!-- Images will load here dynamically -->
+            </div>
         </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>Fanpage dedicated to Chris Elliott and his amazing work.</p>
     </div>
 
     <script>
@@ -134,7 +155,39 @@
             age -= 1;
         }
         document.getElementById('age').textContent = age;
-    </script>
 
+        // Tab functionality
+        function showTab(tabId) {
+            document.querySelectorAll('.container').forEach(container => {
+                container.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.add('active');
+        }
+
+        // Show "Main" by default
+        showTab('main');
+
+        // Dynamic Gallery Loading
+        async function loadGallery() {
+            const galleryContainer = document.getElementById('gallery-container');
+
+            // Replace this with the raw GitHub folder API or manual file list
+            const imageUrls = [
+                'gallery/image1.jpg',
+                'gallery/image2.jpg',
+                'gallery/image3.jpg'
+            ]; 
+
+            imageUrls.forEach(url => {
+                const img = document.createElement('img');
+                img.src = url;
+                img.alt = "Gallery Image";
+                galleryContainer.appendChild(img);
+            });
+        }
+
+        // Load the gallery
+        loadGallery();
+    </script>
 </body>
 </html>
