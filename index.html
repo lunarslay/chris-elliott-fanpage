@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chris Elliott - Big Blue Bubble Artist</title>
+    <title>Chris Elliott Fanpage</title>
     <style>
         /* General Reset */
         * {
@@ -14,129 +14,126 @@
 
         body {
             font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1e1e2f, #2a2d44);
+            color: #ffffff;
             line-height: 1.6;
-            background: linear-gradient(135deg, #2a2d34, #3b3f4a);
-            color: #f4f4f4;
             padding: 20px;
         }
 
-        header {
-            text-align: center;
-            padding: 20px 0;
-            background-color: #1f8b4c;
-            border-radius: 8px;
-        }
-
-        header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            color: #f4f4f4;
-        }
-
-        header p {
-            font-size: 1.2em;
-            color: #e3e3e3;
-        }
-
-        main {
+        .container {
             max-width: 800px;
-            margin: 30px auto;
-            background: #3b3f4a;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            margin: 0 auto;
+            background: #262a3b;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
         }
 
-        .hero img {
-            display: block;
-            margin: 0 auto 20px;
-            max-width: 100%;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        }
-
-        h2 {
+        .header {
             text-align: center;
-            margin-bottom: 20px;
-            color: #1f8b4c;
+            background: #1f8b4c;
+            padding: 20px;
         }
 
-        p {
-            font-size: 1.1em;
-            margin-bottom: 15px;
-            text-align: justify;
+        .header h1 {
+            font-size: 2.5rem;
+            color: #ffffff;
         }
 
-        .info {
+        .header p {
+            font-size: 1.2rem;
+            color: #e0e0e0;
+        }
+
+        .content {
+            padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
-        }
-
-        footer {
             text-align: center;
-            margin-top: 30px;
-            font-size: 0.9em;
-            color: #999;
         }
 
-        footer a {
+        .content img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .content h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
             color: #1f8b4c;
-            text-decoration: none;
         }
 
-        footer a:hover {
-            text-decoration: underline;
+        .content p {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .content ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+
+        .content ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background: #1f8b4c;
+            color: #ffffff;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Chris Elliott</h1>
-        <p>Senior Artist at Big Blue Bubble | My Singing Monsters Legend</p>
-    </header>
-
-    <main>
-        <div class="hero">
-            <!-- Placeholder image -->
-            <img src="chris-elliott.jpg" alt="Chris Elliott">
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Chris Elliott</h1>
+            <p>Senior Artist at Big Blue Bubble | My Singing Monsters Legend</p>
         </div>
 
-        <h2>About Chris Elliott</h2>
-        <p>Chris Elliott is a talented Senior Artist at Big Blue Bubble, known for his remarkable contributions to the *My Singing Monsters* franchise. From drawing intricate art assets to voicing characters, his influence on the game is immense.</p>
+        <!-- Content -->
+        <div class="content">
+            <!-- Image of Chris Elliott -->
+            <img src="chris-elliott.jpg" alt="Chris Elliott - Senior Artist">
 
-        <div class="info">
+            <h2>About Chris Elliott</h2>
+            <p>Chris Elliott is a talented Senior Artist at Big Blue Bubble, known for his exceptional contributions to the *My Singing Monsters* franchise. He’s celebrated for his creativity and unique style.</p>
             <p><strong>Age:</strong> <span id="age">Calculating...</span></p>
             <p><strong>From:</strong> London, Ontario, Canada</p>
-            <p><strong>Hobbies:</strong> Pinball, Star Wars, and admiring goth aesthetics</p>
-            <p><strong>Known For:</strong> 
-                <ul>
-                    <li>Voicing <strong>Grumpyre</strong></li>
-                    <li>Possibly voicing male vocals on <strong>Whajje</strong></li>
-                    <li>Creating iconic art assets for <strong>My Singing Monsters</strong></li>
-                </ul>
-            </p>
+            <p><strong>Known For:</strong></p>
+            <ul>
+                <li>Voicing <strong>Grumpyre</strong> and <strong>Whajje</strong></li>
+                <li>Creating iconic art assets for <strong>My Singing Monsters</strong></li>
+                <li>Being an avid pinball enthusiast and Star Wars fan</li>
+            </ul>
             <p><strong>Birthday:</strong> February 6</p>
+            <p>Chris is also known for his appreciation of goth aesthetics and his fun, quirky personality that shines through in his work!</p>
         </div>
-    </main>
 
-    <footer>
-        <p>Explore more about Chris Elliott and his incredible work in *My Singing Monsters*!</p>
-    </footer>
+        <!-- Footer -->
+        <div class="footer">
+            <p>Fanpage dedicated to Chris Elliott and his amazing work.</p>
+        </div>
+    </div>
 
     <script>
-        // Calculate Chris Elliott's age based on his birthday
-        const birthday = new Date('1974-02-06'); // Chris Elliott's birthdate (YYYY-MM-DD)
+        // Calculate Chris Elliott's age dynamically
+        const birthday = new Date('1974-02-06'); // Chris's birthdate
         const today = new Date();
-        const ageElement = document.getElementById('age');
         let age = today.getFullYear() - birthday.getFullYear();
         const isBeforeBirthdayThisYear = today.getMonth() < birthday.getMonth() || 
                                          (today.getMonth() === birthday.getMonth() && today.getDate() < birthday.getDate());
         if (isBeforeBirthdayThisYear) {
             age -= 1;
         }
-        ageElement.textContent = age;
+        document.getElementById('age').textContent = age;
     </script>
 
 </body>
