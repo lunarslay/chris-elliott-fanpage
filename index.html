@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chris Elliott Fanpage</title>
     <style>
-        /* General Reset */
+        /*reset general */
         * {
             margin: 0;
             padding: 0;
@@ -44,7 +44,7 @@
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             overflow: hidden;
-            display: none; /* Default hidden until shown */
+            display: none; /*default to be hidden until shown */
         }
 
         .container.active {
@@ -62,33 +62,9 @@
             color: #ffffff;
         }
 
-        .header p {
-            font-size: 1.2rem;
-            color: #e0e0e0;
-        }
-
         .content {
             padding: 20px;
             text-align: center;
-        }
-
-        .content img {
-            max-width: 100%;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            padding: 20px;
-        }
-
-        .gallery img {
-            max-width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
 
         .footer {
@@ -102,61 +78,58 @@
 </head>
 <body>
 
-    <!-- Navigation -->
+    <!-- nav -->
     <nav>
         <a href="#main" onclick="showTab('main')">Main</a>
         <a href="#gallery" onclick="showTab('gallery')">Gallery</a>
+        <a href="#quotes" onclick="showTab('quotes')">Favorite Quotes</a>
     </nav>
 
-    <!-- Main Container -->
+    <!-- main container -->
     <div class="container" id="main">
         <div class="header">
             <h1>Chris Elliott</h1>
             <p>Senior Artist at Big Blue Bubble | My Singing Monsters</p>
         </div>
         <div class="content">
-            <img src="chris-elliott.jpg" alt="Chris Elliott - Senior Artist">
-            <h2>About Chris Elliott</h2>
-            <p>Chris Elliott is a talented Senior Artist at Big Blue Bubble, known for his contributions to the *My Singing Monsters* franchise. He’s celebrated for his creativity and unique style.</p>
-            <p><strong>Age:</strong> <span id="age">Calculating...</span></p>
-            <p><strong>From:</strong> London, Ontario, Canada</p>
-            <ul>
-                <li>Voicing <strong>Grumpyre</strong> and <strong>Possibly Whaill</strong></li>
-                <li>Creating iconic art assets for <strong>My Singing Monsters</strong></li>
-                <li>Being an avid pinball enthusiast and Star Wars fan</li>
-            </ul>
-            <p>Chris is also known for his appreciation of goth aesthetics and his fun, quirky personality that shines through in his work!</p>
+            <p><strong>Age:</strong> 48</p>
         </div>
     </div>
 
-    <!-- Gallery Container -->
-    <div class="container" id="gallery">
+    <!-- fav quotes container -->
+    <div class="container" id="quotes">
         <div class="content">
-            <h2>Gallery</h2>
-            <div class="gallery" id="gallery-container">
-                <!-- Images will load here dynamically -->
-            </div>
+            <h2>Favorite Quotes</h2>
+            <ul>
+                <li>"Why are you wearing that stupid man suit?" - Frank [Donnie Darko]</li>
+                <li>"Whatever doesn't kill you makes you stronger." - Friedrich Nietzsche</li>
+                <li>"Evil will always triumph over good because good is dumb." - Dark Helmet [Space Balls]</li>
+                <li>"You're gonna need a bigger boat." - Sheriff Brody [Jaws]</li>
+                <li>"Through the darkness of future past, the magician longs to see, one chance out between two worlds, fire walk with me." - Mike the one-armed man [Twin Peaks]</li>
+                <li>"Black as midnight, black as pitch, blacker than the foulest witch." - Blix [Legend]</li>
+                <li>"Do ... or Do Not. There is no Try." - Master Yoda [The Empire Strikes Back]</li>
+                <li>"I wanna moustache dammit! I wanna look like Burt Reynolds!" - Darby [Gummo]</li>
+                <li>"Don't take life too seriously. You'll never get out alive." - Buggs Bunny</li>
+                <li>"Some would say the Earth is our Moon ... that would belittle the name of our Moon, which is the Moon." - Ignignokt the Moonite [Aqua Teen Hunger Force]</li>
+                <li>"Psychos do not explode when sunlight hits them, I don't give a fuck how crazy they are!" - Seth [From Dusk Till Dawn]</li>
+                <li>"This car is 100% death proof, only to get the benefit of it honey, you really need to be sitting in my seat!" - Stuntman Mike [Death Proof]</li>
+                <li>"Fuck you, you fucking fuck!" - Frank Booth [Blue Velvet]</li>
+                <li>"Ya ever see a Yeti when a dozen condoms of 'coke' burst in his belly? It's a bad scene, man." - Hermey the elf [Robot Chicken]</li>
+                <li>"Has anyone in this family ever even SEEN a chicken?" - Michael [Arrested Development]</li>
+                <li>"Scientists are saying the future is going to be far more futuristic than originally predicted." - Krysta Now [Southland Tales]</li>
+                <li>"And if I overstay my welcome ... just tap me on the head." - Colonel Angus [Christopher Walken on SNL]</li>
+                <li>"Look at us. I'm frozen and you're dead, and I love you." - David [Vanilla Sky]</li>
+            </ul>
         </div>
     </div>
 
-    <!-- Footer -->
+    <!-- footer -->
     <div class="footer">
         <p>Fanpage dedicated to Chris Elliott and his amazing work.</p>
     </div>
 
     <script>
-        // Calculate Chris Elliott's age dynamically
-        const birthday = new Date('1974-02-06'); // Chris's birthdate
-        const today = new Date();
-        let age = today.getFullYear() - birthday.getFullYear();
-        const isBeforeBirthdayThisYear = today.getMonth() < birthday.getMonth() || 
-                                         (today.getMonth() === birthday.getMonth() && today.getDate() < birthday.getDate());
-        if (isBeforeBirthdayThisYear) {
-            age -= 1;
-        }
-        document.getElementById('age').textContent = age;
-
-        // Tab functionality
+        // tab functionality
         function showTab(tabId) {
             document.querySelectorAll('.container').forEach(container => {
                 container.classList.remove('active');
@@ -164,39 +137,8 @@
             document.getElementById(tabId).classList.add('active');
         }
 
-        // Show "Main" by default
+        // show main by default
         showTab('main');
-
-        // Dynamic Gallery Loading
-        async function loadGallery() {
-            const galleryContainer = document.getElementById('gallery-container');
-
-            // Replace this with the raw GitHub folder API or manual file list
-            const imageUrls = [
-                  'gallery/1.jpg',
-    'gallery/2.jpg',
-    'gallery/3.jpg',
-    'gallery/4.jpg',
-    'gallery/5.jpg',
-    'gallery/6.jpg',
-    'gallery/7.jpg',
-    'gallery/8.jpg',
-    'gallery/9.jpg',
-    'gallery/10.jpg',
-    'gallery/11.jpg',
-    'gallery/12.jpg'
-            ]; 
-
-            imageUrls.forEach(url => {
-                const img = document.createElement('img');
-                img.src = url;
-                img.alt = "Gallery Image";
-                galleryContainer.appendChild(img);
-            });
-        }
-
-        // Load the gallery
-        loadGallery();
     </script>
 </body>
 </html>
