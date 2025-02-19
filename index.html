@@ -62,9 +62,20 @@
             color: #ffffff;
         }
 
+        .header p {
+            font-size: 1.2rem;
+            color: #e0e0e0;
+        }
+
         .content {
             padding: 20px;
             text-align: center;
+        }
+
+        .content img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
         }
 
         .gallery {
@@ -91,12 +102,13 @@
 </head>
 <body>
 
+    <!-- Navigation -->
     <nav>
         <a href="#main" onclick="showTab('main')">Main</a>
         <a href="#gallery" onclick="showTab('gallery')">Gallery</a>
-        <a href="#quotes" onclick="showTab('quotes')">Favorite Quotes</a>
     </nav>
 
+    <!-- Main Container -->
     <div class="container" id="main">
         <div class="header">
             <h1>Chris Elliott</h1>
@@ -105,41 +117,46 @@
         <div class="content">
             <img src="chris-elliott.jpg" alt="Chris Elliott - Senior Artist">
             <h2>About Chris Elliott</h2>
-            <p>Chris Elliott is a talented Senior Artist at Big Blue Bubble, known for his contributions to the *My Singing Monsters* franchise.</p>
-            <p><strong>Age:</strong> 48</p>
+            <p>Chris Elliott is a talented Senior Artist at Big Blue Bubble, known for his contributions to the *My Singing Monsters* franchise. He’s celebrated for his creativity and unique style.</p>
+            <p><strong>Age:</strong> <span id="age">Calculating...</span></p>
             <p><strong>From:</strong> London, Ontario, Canada</p>
+            <ul>
+                <li>Voicing <strong>Grumpyre</strong> and <strong>Possibly Whaill</strong></li>
+                <li>Creating iconic art assets for <strong>My Singing Monsters</strong></li>
+                <li>Being an avid pinball enthusiast and Star Wars fan</li>
+            </ul>
+            <p>Chris is also known for his appreciation of goth aesthetics and his fun, quirky personality that shines through in his work!</p>
         </div>
     </div>
 
+    <!-- Gallery Container -->
     <div class="container" id="gallery">
         <div class="content">
             <h2>Gallery</h2>
             <div class="gallery" id="gallery-container">
-                <img src="gallery/1.jpg" alt="Gallery Image">
-                <img src="gallery/2.jpg" alt="Gallery Image">
-                <img src="gallery/3.jpg" alt="Gallery Image">
-                <img src="gallery/4.jpg" alt="Gallery Image">
+                <!-- Images will load here dynamically -->
             </div>
         </div>
     </div>
 
-    <div class="container" id="quotes">
-        <div class="content">
-            <h2>Favorite Quotes</h2>
-            <ul>
-                <li>"Why are you wearing that stupid man suit?" - Frank [Donnie Darko]</li>
-                <li>"Whatever doesn't kill you makes you stronger." - Friedrich Nietzsche</li>
-                <li>"You're gonna need a bigger boat." - Sheriff Brody [Jaws]</li>
-                <li>"Do ... or Do Not. There is no Try." - Master Yoda [The Empire Strikes Back]</li>
-            </ul>
-        </div>
-    </div>
-
+    <!-- Footer -->
     <div class="footer">
         <p>Fanpage dedicated to Chris Elliott and his amazing work.</p>
     </div>
 
     <script>
+        // Calculate Chris Elliott's age dynamically
+        const birthday = new Date('1974-02-06'); // Chris's birthdate
+        const today = new Date();
+        let age = today.getFullYear() - birthday.getFullYear();
+        const isBeforeBirthdayThisYear = today.getMonth() < birthday.getMonth() || 
+                                         (today.getMonth() === birthday.getMonth() && today.getDate() < birthday.getDate());
+        if (isBeforeBirthdayThisYear) {
+            age -= 1;
+        }
+        document.getElementById('age').textContent = age;
+
+        // Tab functionality
         function showTab(tabId) {
             document.querySelectorAll('.container').forEach(container => {
                 container.classList.remove('active');
@@ -147,7 +164,39 @@
             document.getElementById(tabId).classList.add('active');
         }
 
+        // Show "Main" by default
         showTab('main');
+
+        // Dynamic Gallery Loading
+        async function loadGallery() {
+            const galleryContainer = document.getElementById('gallery-container');
+
+            // Replace this with the raw GitHub folder API or manual file list
+            const imageUrls = [
+                  'gallery/1.jpg',
+    'gallery/2.jpg',
+    'gallery/3.jpg',
+    'gallery/4.jpg',
+    'gallery/5.jpg',
+    'gallery/6.jpg',
+    'gallery/7.jpg',
+    'gallery/8.jpg',
+    'gallery/9.jpg',
+    'gallery/10.jpg',
+    'gallery/11.jpg',
+    'gallery/12.jpg'
+            ]; 
+
+            imageUrls.forEach(url => {
+                const img = document.createElement('img');
+                img.src = url;
+                img.alt = "Gallery Image";
+                galleryContainer.appendChild(img);
+            });
+        }
+
+        // Load the gallery
+        loadGallery();
     </script>
 </body>
 </html>
